@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kaif Mobile – Back Covers, Tempered Glass & Accessories</title>
+<style>
+:root{--p:#ff7a45;--bg:#fffaf6;--c:#ffffff;--t:#2b2b45;--m:#7a7a90;--soft:#ffe9dc;--line:#f1e3d9}
+*{box-sizing:border-box;margin:0}body{font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--t)}
+nav{position:sticky;top:0;z-index:20;background:#fff;color:var(--t);display:flex;align-items:center;gap:20px;padding:12px 5%;box-shadow:0 2px 12px #ff7a4518}
+nav .logo{font-weight:800;font-size:22px;color:var(--t);text-decoration:none}nav .logo span{color:var(--p)}
+nav .links{display:flex;gap:18px;margin-left:auto}nav a{color:var(--t);text-decoration:none;font-size:15px}nav a:hover{color:var(--p)}
+.cartbtn{background:var(--p);border:0;color:#fff;padding:8px 14px;border-radius:20px;cursor:pointer;font-weight:600}
+@media(max-width:640px){nav .links{display:none}nav{justify-content:space-between}}
+.slider{position:relative;overflow:hidden;height:320px}
+.slide{position:absolute;inset:0;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:10px;padding:0 8%;color:var(--t);opacity:0;transition:opacity .7s}
+.slide.on{opacity:1}.slide .tx{max-width:55%}.slide h2{font-size:clamp(26px,5vw,46px)}.slide p{margin:10px 0 18px;font-size:18px;color:#55556e}
+.slide a{display:inline-block;background:var(--p);color:#fff;padding:10px 24px;border-radius:25px;text-decoration:none;font-weight:700}
+.slide img{height:88%;max-width:40%;filter:drop-shadow(0 8px 14px #0002)}
+@media(max-width:640px){.slide .tx{max-width:62%}.slide p{font-size:14px}}
+.dots{position:absolute;bottom:12px;width:100%;text-align:center}.dots i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#0002;margin:0 4px;cursor:pointer}.dots i.on{background:var(--p)}
+.wrap{padding:24px 5%}.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px}
+.cat{background:var(--c);border:1px solid var(--line);border-radius:14px;padding:16px 8px;text-align:center;cursor:pointer;font-weight:600;font-size:14px}.cat:hover{background:var(--soft);border-color:var(--p)}.cat b{display:block;font-size:28px;margin-bottom:6px}
+h3.sec{font-size:22px;margin:30px 0 14px;border-left:5px solid var(--p);padding-left:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.card{background:var(--c);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:.2s}.card:hover{box-shadow:0 6px 18px #ff7a4522;transform:translateY(-2px)}
+.card img,.ph{width:100%;aspect-ratio:1;object-fit:cover;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:40px}
+.card div{padding:10px}.card h4{font-size:14px;font-weight:600;min-height:36px}.pr{color:var(--p);font-weight:800}.pr s{color:var(--m);font-weight:400;font-size:12px;margin-left:5px}
+.oos{color:#d33;font-size:12px}
+.search{width:100%;padding:12px 16px;border-radius:25px;border:1px solid var(--line);background:#fff;color:var(--t);font-size:15px;margin-bottom:18px}
+.ov{position:fixed;inset:0;background:#2b2b4566;z-index:50;display:none;align-items:center;justify-content:center;padding:14px}.ov.on{display:flex}
+.modal{background:var(--c);border-radius:16px;max-width:760px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:640px){.modal{grid-template-columns:1fr}}
+.modal img,.modal .ph{width:100%;aspect-ratio:1;object-fit:cover}.modal .in{padding:20px}.modal h2{font-size:21px}.modal p{color:var(--m);margin:10px 0;white-space:pre-line}
+.btn{display:block;width:100%;border:0;border-radius:10px;padding:12px;font-size:15px;font-weight:700;cursor:pointer;margin-top:10px;text-align:center;text-decoration:none}
+.b1{background:var(--soft);color:#c2410c}.b2{background:#25d366;color:#fff}.x{float:right;background:none;border:0;font-size:26px;color:var(--t);cursor:pointer}
+.qty{display:flex;align-items:center;gap:10px;margin-top:10px}.qty button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--t);font-size:18px;cursor:pointer}
+.drawer{position:fixed;right:0;top:0;bottom:0;width:min(400px,100%);background:var(--c);z-index:60;transform:translateX(100%);transition:.3s;padding:18px;display:flex;flex-direction:column;box-shadow:-4px 0 20px #0002}.drawer.on{transform:none}
+.items{flex:1;overflow:auto}.it{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}.it span{flex:1}
+footer{background:var(--soft);color:var(--t);text-align:center;padding:30px 5%;margin-top:40px}
+.wa{position:fixed;bottom:18px;right:18px;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;z-index:30;box-shadow:0 4px 12px #0003}
+</style></head><body>
+<nav><a class="logo" href="#"><span>Kaif</span> Mobile</a><div class="links"><a href="#">Home</a><a href="#cats">Categories</a><a href="#products">Products</a><a href="#contact">Contact</a></div><button class="cartbtn" onclick="toggleCart()">🛒 Cart (<span id="cc">0</span>)</button></nav>
+<div class="slider" id="sl"></div>
+<div class="wrap" id="cats"><h3 class="sec" style="margin-top:0">Shop by Category</h3><div class="cats" id="catgrid"></div></div>
+<div class="wrap" id="products"><input class="search" id="q" placeholder="🔍 Search products..." oninput="render()"><div id="list"></div></div>
+<footer id="contact"><p><b>Kaif Mobile</b></p><p>Mobile Back Covers • Tempered Glass • Chargers • Neckband • Earbuds & more</p><p style="margin-top:8px">To order, message us on WhatsApp: <a id="fw" style="color:#128c4a;font-weight:700" href="#">Chat Now</a></p></footer>
+<a class="wa" id="wa" href="#" target="_blank">💬</a>
+<div class="ov" id="ov" onclick="if(event.target===this)closeM()"><div class="modal" id="modal"></div></div>
+<div class="drawer" id="dr"><button class="x" onclick="toggleCart()">×</button><h3>Your Cart</h3><div class="items" id="items"></div><div id="tot" style="font-weight:800;margin:10px 0"></div><button class="btn b2" onclick="orderAll()">Order on WhatsApp</button></div>
+<script>
+const CATS=[["Back Cover","📱"],["Tempered Glass","🛡️"],["Charger","🔌"],["Cable","🔗"],["Neckband","🎧"],["Earbuds","🎵"],["Power Bank","🔋"],["Other Accessories","✨"]];
+const SL=[["linear-gradient(120deg,#ffe3d3,#ffd1e3)","Stylish Back Covers","Har phone ke liye naye designs – ₹149 se shuru","Back Cover"],["linear-gradient(120deg,#d6ecff,#cdf5f0)","Tempered Glass","Full protection, crystal clear – sab models","Tempered Glass"],["linear-gradient(120deg,#dff5d8,#f6fbd0)","Fast Chargers & Cables","Original quality, sabse sasta","Charger"],["linear-gradient(120deg,#e8dcff,#fbdcf5)","Neckband & Earbuds","Clear sound, deep bass","Earbuds"]];
+const AR={"Back Cover":'<rect x="60" y="20" width="80" height="160" rx="16" fill="#fff"/><rect x="66" y="26" width="68" height="148" rx="12" fill="CC"/><rect x="72" y="32" width="28" height="28" rx="8" fill="#0006"/><circle cx="80" cy="40" r="5" fill="#fff"/><circle cx="91" cy="51" r="5" fill="#fff"/>',"Tempered Glass":'<rect x="60" y="20" width="80" height="160" rx="14" fill="#fff" stroke="CC" stroke-width="6"/><path d="M75 40L112 40L75 105Z" fill="CC" opacity=".3"/><path d="M100 75L126 150" stroke="CC" stroke-width="5" opacity=".3"/>',"Charger":'<rect x="70" y="60" width="60" height="70" rx="10" fill="#fff"/><rect x="85" y="35" width="8" height="25" fill="#fff"/><rect x="107" y="35" width="8" height="25" fill="#fff"/><path d="M100 130Q100 178 145 165" stroke="CC" stroke-width="7" fill="none"/>',"Cable":'<path d="M40 150Q80 40 120 110T170 50" stroke="CC" stroke-width="8" fill="none"/><rect x="28" y="145" width="24" height="16" rx="4" fill="#fff"/><rect x="162" y="38" width="22" height="16" rx="4" fill="#fff"/>',"Neckband":'<path d="M50 40Q50 150 100 150Q150 150 150 40" stroke="CC" stroke-width="14" fill="none" stroke-linecap="round"/><circle cx="50" cy="40" r="14" fill="#fff"/><circle cx="150" cy="40" r="14" fill="#fff"/>',"Earbuds":'<circle cx="70" cy="70" r="22" fill="#fff"/><circle cx="70" cy="70" r="9" fill="CC"/><rect x="64" y="85" width="12" height="70" rx="6" fill="#fff"/><circle cx="130" cy="70" r="22" fill="#fff"/><circle cx="130" cy="70" r="9" fill="CC"/><rect x="124" y="85" width="12" height="70" rx="6" fill="#fff"/>',"Power Bank":'<rect x="55" y="45" width="90" height="110" rx="14" fill="#fff"/><rect x="70" y="65" width="60" height="10" rx="3" fill="CC"/><rect x="70" y="85" width="60" height="10" rx="3" fill="CC" opacity=".6"/><rect x="70" y="105" width="60" height="10" rx="3" fill="CC" opacity=".3"/>',"O":'<path d="M100 40l16 38 40 4-30 27 9 40-35-21-35 21 9-40-30-27 40-4z" fill="#fff"/>'};
+const art=(c,i=0,nb)=>{const k=['#ff7a45','#4ea3f0','#b36ae0','#4cc38a','#f0627a','#2cb5c4'][i%6];return 'data:image/svg+xml;utf8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">${nb?'':`<rect width="200" height="200" fill="${k}22"/><circle cx="100" cy="100" r="85" fill="${k}33"/>`}${(AR[c]||AR.O).replace(/CC/g,k)}</svg>`)};
+const D={"Back Cover":["Silicone Soft Back Cover|199|349","Transparent Shockproof Cover|149|299","Matte Hard Back Cover|179|299","Premium Leather Look Cover|249|449"],"Tempered Glass":["9H Tempered Glass|99|199","Full Cover 11D Glass|129|249","Privacy Anti-Spy Glass|179|299"],"Charger":["33W Fast Charger|349|599","20W Type-C Adapter|249|449","Car Charger Dual USB|199|349"],"Cable":["Type-C Fast Cable 1m|99|199","Lightning Cable 1m|149|299","Micro USB Cable|79|149"],"Neckband":["Bass Wireless Neckband|599|1199","Sports Neckband 30hr Battery|799|1499"],"Earbuds":["TWS Bluetooth Earbuds|699|1499","Wired Earphones with Mic|129|299"],"Power Bank":["10000mAh Power Bank|799|1299","20000mAh Fast Power Bank|1299|2199"],"Other Accessories":["Mobile Stand Holder|129|249","Selfie Ring Light|249|499"]};
+const DEMO=Object.entries(D).flatMap(([category,a],x)=>a.map((t,j)=>{const[name,price,oldPrice]=t.split('|');return{_id:'d'+x+j,name,category,price:+price,oldPrice:+oldPrice,description:'Best quality '+name+'. Sab models available hain – WhatsApp pe apna mobile model batayein.',inStock:true}}));
+let PR=[],WA='',cart=JSON.parse(localStorage.getItem('kc')||'[]'),cur=null,qty=1,si=0;
+const $=i=>document.getElementById(i),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+$('sl').innerHTML=SL.map((s,i)=>`<div class="slide" style="background:${s[0]}"><div class="tx"><h2>${s[1]}</h2><p>${s[2]}</p><a href="#products" onclick="go('${s[3]}')">Shop Now</a></div><img src="${art(s[3],i*2,1)}" alt="${s[1]}"></div>`).join('')+'<div class="dots">'+SL.map((_,i)=>`<i onclick="slide(${i})"></i>`).join('')+'</div>';
+function slide(n){si=n;document.querySelectorAll('.slide').forEach((e,i)=>e.classList.toggle('on',i===n));document.querySelectorAll('.dots i').forEach((e,i)=>e.classList.toggle('on',i===n))}
+slide(0);setInterval(()=>slide((si+1)%SL.length),4000);
+$('catgrid').innerHTML=CATS.map(c=>`<div class="cat" onclick="go('${c[0]}')"><b>${c[1]}</b>${c[0]}</div>`).join('');
+function go(c){const e=$('sec-'+c.replace(/\W/g,''));if(e)e.scrollIntoView({behavior:'smooth'})}
+function card(p){return `<div class="card" onclick="openM('${p._id}')">${p.image?`<img loading="lazy" src="${esc(p.image)}" alt="${esc(p.name)}">`:'<div class="ph">📦</div>'}<div><h4>${esc(p.name)}</h4><span class="pr">₹${p.price}${p.oldPrice>p.price?`<s>₹${p.oldPrice}</s>`:''}</span>${p.inStock===false?'<div class="oos">Out of stock</div>':''}</div></div>`}
+function render(){const q=$('q').value.toLowerCase();let h='';
+CATS.forEach(([c])=>{const l=PR.filter(p=>p.category===c&&p.name.toLowerCase().includes(q));if(l.length)h+=`<h3 class="sec" id="sec-${c.replace(/\W/g,'')}">${c}</h3><div class="grid">${l.map(card).join('')}</div>`});
+$('list').innerHTML=h||'<p style="text-align:center;color:var(--m)">No products found.</p>'}
+function openM(id){cur=PR.find(p=>p._id===id);qty=1;drawM();$('ov').classList.add('on')}
+function closeM(){$('ov').classList.remove('on')}
+function drawM(){const p=cur;$('modal').innerHTML=`${p.image?`<img src="${esc(p.image)}">`:'<div class="ph">📦</div>'}<div class="in"><button class="x" onclick="closeM()">×</button><small style="color:var(--m)">${esc(p.category)}</small><h2>${esc(p.name)}</h2><div class="pr" style="font-size:22px;margin:6px 0">₹${p.price}${p.oldPrice>p.price?`<s>₹${p.oldPrice}</s>`:''}</div><p>${esc(p.description)}</p>${p.inStock===false?'<div class="oos">Out of stock</div>':`<div class="qty"><button onclick="qty=Math.max(1,qty-1);drawM()">−</button><b>${qty}</b><button onclick="qty++;drawM()">+</button></div><button class="btn b1" onclick="addCart()">🛒 Add to Cart</button><a class="btn b2" target="_blank" href="${waLink(`Hello Kaif Mobile! I want to order this product:\n\n📦 ${p.name}\n🏷️ Category: ${p.category}\n💰 Price: ₹${p.price}\n🔢 Quantity: ${qty}\n💵 Total: ₹${p.price*qty}`)}">💬 Order on WhatsApp</a>`}</div>`}
+const waLink=t=>`https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
+function addCart(){const x=cart.find(i=>i.id===cur._id);x?x.q+=qty:cart.push({id:cur._id,n:cur.name,p:cur.price,q:qty});saveCart();closeM();$('dr').classList.add('on')}
+function saveCart(){localStorage.setItem('kc',JSON.stringify(cart));$('cc').textContent=cart.reduce((a,i)=>a+i.q,0);
+$('items').innerHTML=cart.length?cart.map((i,k)=>`<div class="it"><span>${esc(i.n)}<br><small>₹${i.p} × ${i.q}</small></span><b>₹${i.p*i.q}</b><button onclick="cart.splice(${k},1);saveCart()" style="border:0;background:none;font-size:18px;cursor:pointer">🗑️</button></div>`).join(''):'<p style="color:var(--m)">Your cart is empty.</p>';
+$('tot').textContent=cart.length?'Total: ₹'+cart.reduce((a,i)=>a+i.p*i.q,0):''}
+function toggleCart(){$('dr').classList.toggle('on')}
+function orderAll(){if(!cart.length)return alert('Your cart is empty');let m='Hello Kaif Mobile! I want to order:\n\n';cart.forEach((i,k)=>m+=`${k+1}. ${i.n} – ₹${i.p} × ${i.q} = ₹${i.p*i.q}\n`);m+=`\n💵 Total: ₹${cart.reduce((a,i)=>a+i.p*i.q,0)}`;window.open(waLink(m),'_blank')}
+const done=p=>{PR=p;PR.forEach((p,i)=>p.image=p.image||art(p.category,i));render()};
+fetch('/api/config').then(r=>r.json()).then(c=>WA=c.whatsapp).catch(()=>WA='919999999999').finally(()=>{$('wa').href=$('fw').href=waLink('Hello Kaif Mobile!');
+fetch('/api/products').then(r=>r.json()).then(p=>done(p.length?p:DEMO)).catch(()=>done(DEMO))});
+saveCart();
+</script></body></html>

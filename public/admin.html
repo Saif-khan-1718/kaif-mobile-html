@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kaif Mobile – Admin</title>
+<style>*{box-sizing:border-box;margin:0}body{font-family:system-ui,Arial;background:#f3f4f8;color:#222;padding:16px}
+.box{background:#fff;border-radius:12px;padding:18px;max-width:900px;margin:0 auto 16px;box-shadow:0 2px 8px #0001}
+input,select,textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;font-size:15px;margin:4px 0 10px;font-family:inherit}
+.r{display:grid;grid-template-columns:1fr 1fr;gap:10px}button{background:#ff5a1f;color:#fff;border:0;padding:10px 18px;border-radius:8px;font-size:15px;cursor:pointer;font-weight:600}
+.g{background:#777}.dl{background:#d32f2f;padding:6px 12px}.ed{background:#1565c0;padding:6px 12px}
+.row{display:flex;gap:12px;align-items:center;border-bottom:1px solid #eee;padding:10px 0}.row img,.row .no{width:54px;height:54px;object-fit:cover;border-radius:8px;background:#eee}.row div{flex:1;font-size:14px}
+.top{display:flex;justify-content:space-between;align-items:center}#prev{width:110px;height:110px;object-fit:cover;border-radius:8px;display:none;margin-bottom:8px}</style></head><body>
+<div class="box" id="lg" style="max-width:380px;margin-top:10vh"><h2>🔐 Kaif Mobile Admin</h2><br><input type="password" id="pw" placeholder="Admin password" onkeydown="if(event.key==='Enter')login()"><button onclick="login()">Login</button></div>
+<div id="app" style="display:none">
+<div class="box top"><h2>Kaif Mobile – Admin Panel</h2><div><a href="/" target="_blank">Website dekho</a> &nbsp;<button class="g" onclick="logout()">Logout</button></div></div>
+<div class="box"><h3 id="ft">Naya Product Add Karo</h3><br>
+<label>Product ka naam</label><input id="n"><div class="r"><div><label>Category</label><select id="c"></select></div><div><label>Stock</label><select id="s"><option value="1">In Stock</option><option value="0">Out of Stock</option></select></div></div>
+<div class="r"><div><label>Price (₹)</label><input id="p" type="number"></div><div><label>Purana Price / MRP (₹, optional)</label><input id="o" type="number"></div></div>
+<label>Description</label><textarea id="d" rows="3"></textarea><label>Photo</label><input type="file" id="f" accept="image/*" onchange="pick(this)"><img id="prev">
+<button onclick="save()">Save Product</button> <button class="g" onclick="reset()">Clear</button></div>
+<div class="box"><div class="top"><h3>Saare Products (<span id="cnt">0</span>)</h3></div><input id="q" placeholder="Search..." oninput="draw()"><div id="l"></div></div></div>
+<script>
+const CATS=["Back Cover","Tempered Glass","Charger","Cable","Neckband","Earbuds","Power Bank","Other Accessories"];
+const $=i=>document.getElementById(i),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let T=localStorage.getItem('kt'),L=[],eid=null,img='';
+$('c').innerHTML=CATS.map(c=>`<option>${c}</option>`).join('');
+async function api(u,m='GET',b){const r=await fetch(u,{method:m,headers:{'Content-Type':'application/json','x-token':T||''},body:b?JSON.stringify(b):undefined});const j=await r.json();if(r.status===401&&T){logout();}if(!r.ok)throw new Error(j.error||'Error');return j}
+async function login(){try{const j=await api('/api/login','POST',{password:$('pw').value});T=j.token;localStorage.setItem('kt',T);start()}catch(e){alert(e.message)}}
+function logout(){localStorage.removeItem('kt');location.reload()}
+async function start(){$('lg').style.display='none';$('app').style.display='block';load()}
+async function load(){L=await api('/api/products');draw()}
+function draw(){const q=$('q').value.toLowerCase();const l=L.filter(p=>p.name.toLowerCase().includes(q));$('cnt').textContent=L.length;
+$('l').innerHTML=l.map(p=>`<div class="row">${p.image?`<img src="${esc(p.image)}">`:'<div class="no"></div>'}<div><b>${esc(p.name)}</b><br>${esc(p.category)} • ₹${p.price} ${p.inStock===false?'• <span style="color:red">Out of stock</span>':''}</div><button class="ed" onclick="edit('${p._id}')">Edit</button><button class="dl" onclick="del('${p._id}')">Delete</button></div>`).join('')||'<p>Koi product nahi.</p>'}
+function pick(i){const f=i.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{const im=new Image();im.onload=()=>{const k=Math.min(1,600/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);img=c.toDataURL('image/jpeg',.75);$('prev').src=img;$('prev').style.display='block'};im.src=e.target.result};r.readAsDataURL(f)}
+async function save(){if(!$('n').value||!$('p').value)return alert('Naam aur price zaroori hai');
+const b={name:$('n').value,category:$('c').value,price:+$('p').value,oldPrice:+$('o').value||0,description:$('d').value,inStock:$('s').value==='1',image:img};
+try{eid?await api('/api/products/'+eid,'PUT',b):await api('/api/products','POST',b);reset();load()}catch(e){alert(e.message)}}
+function edit(id){const p=L.find(x=>x._id===id);eid=id;img=p.image||'';$('n').value=p.name;$('c').value=p.category;$('p').value=p.price;$('o').value=p.oldPrice||'';$('d').value=p.description||'';$('s').value=p.inStock===false?'0':'1';$('prev').src=img;$('prev').style.display=img?'block':'none';$('ft').textContent='Product Edit Karo';scrollTo(0,0)}
+function reset(){eid=null;img='';['n','p','o','d','f'].forEach(i=>$(i).value='');$('prev').style.display='none';$('ft').textContent='Naya Product Add Karo'}
+async function del(id){if(confirm('Pakka delete karna hai?')){await api('/api/products/'+id,'DELETE');load()}}
+if(T)start();
+</script></body></html>
